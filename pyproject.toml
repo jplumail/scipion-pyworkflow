@@ -1,11 +1,11 @@
 [build-system]
-requires = ["setuptools>=42", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
 
 [project]
-name = "scipion-pyworkflow"
-version = "0.0.1"  # wrong version
-description = "Simple workflow platform used in scientific applications, initially developed within the Scipion framework for image processing in Electron Microscopy."
+name = "scipion-pyworkflow-windows"
+dynamic = ["version"]
+description = "Simple workflow platform used in scientific applications, initially developed within the Scipion framework for image processing in Electron Microscopy. Fork of the project to support windows."
 readme = "README.rst"
 requires-python = ">=3.8"
 keywords = ["workflows", "science", "electron-microscopy", "cryo-em", "structural-biology", "image-processing", "scipion"]
@@ -53,8 +53,16 @@ fix_links = "pyworkflow.project.scripts.fix_links:main"
 [project.entry-points."pyworkflow.plugin"]
 pyworkflowtests = "pyworkflowtests"
 
-[tool.setuptools.package-data]
-"pyworkflow" = ["resources/*", "project/scripts/*"]
-
-[tool.setuptools.packages.find]
+[tool.hatch.build]
+include = [
+    "resources/*",
+    "project/scripts/*"
+]
 exclude = ["pyworkflowtests"]
+
+[tool.hatch.version]
+source = "vcs"
+raw-options = { root = "../.." }
+
+[tool.hatch.build.hooks.vcs]
+version-file = "pyworkflow/_version.py"

@@ -24,10 +24,4 @@
 
 from .constants import *
 from .config import *
-
-# Define pyworkflow version in a standard way, as proposed by:
-# https://www.python.org/dev/peps/pep-0396/
-__version__ = LAST_VERSION
-
-
-
+from ._version import __version__
