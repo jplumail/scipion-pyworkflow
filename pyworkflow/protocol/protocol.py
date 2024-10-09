@@ -1862,7 +1862,7 @@ class Protocol(Step):
             errors.append("After fixed, you NEED TO RESTART THE PROJECT WINDOW")
 
     @classmethod
-    def getClassLabel(cls, prependPackageName=True):
+    def getClassLabel(cls, prependPackageName=False):
         """ Return a more readable string representing the protocol class """
         label = cls.__dict__.get('_label', cls.__name__)
         if prependPackageName:
