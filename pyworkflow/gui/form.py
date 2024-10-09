@@ -1847,11 +1847,6 @@ class FormWindow(Window):
             btnHelp.grid(row=0, column=2, padx=(5, 0), pady=2, sticky='e')
         modeFrame.columnconfigure(0, weight=1)
         modeFrame.grid(row=r, column=1, sticky='w', columnspan=2)
-        
-        # Queue
-        self._createHeaderLabel(runFrame, pwutils.Message.LABEL_QUEUE, row=r,
-                                sticky='e',
-                                column=c)
 
         var, frame = ParamWidget.createBoolWidget(runFrame, bg=pw.Config.SCIPION_BG_COLOR,
                                                   font=self.font)
