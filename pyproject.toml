@@ -53,12 +53,8 @@ fix_links = "pyworkflow.project.scripts.fix_links:main"
 [project.entry-points."pyworkflow.plugin"]
 pyworkflowtests = "pyworkflowtests"
 
-[tool.hatch.build]
-include = [
-    "resources/*",
-    "project/scripts/*"
-]
-exclude = ["pyworkflowtests"]
+[tool.hatch.build.targets.wheel]
+packages = ["pyworkflow"]
 
 [tool.hatch.version]
 source = "vcs"
